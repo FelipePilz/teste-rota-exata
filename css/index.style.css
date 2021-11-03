@@ -16,6 +16,11 @@ main img {
     width: 100%;
 }
 
+#resultado {
+    color: #d56565;
+    margin-bottom: 5px;
+}
+
 main form label {
     font-weight: bold;
     font-size: 18px;
