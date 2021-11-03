@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #3db6e1;
+    color: #ffffff;
+}
+
+main {
+    text-align: center;
+    padding: 50px;
+}
+
+main img {
+    max-width: 250px;
+    width: 100%;
+}
+
+main form label {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+form input,
+form textarea {
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 7px 3px 5px #0000002e;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin: 10px auto;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="email"] {
+    padding-left: 10px;
+    display: block;
+    font-size: 16px;
+    max-width: 350px;
+    width: 100%;
+    height: 35px;
+}
+
+form textarea {
+    padding: 10px;
+    resize: none;
+    display: block;
+    font-size: 16px;
+    max-width: 350px;
+    max-height: 150px;
+    width: 100%;
+    height: 120px;
+}
+
+form input[type="submit"],
+form input[type="reset"] {
+    font-size: 16px;
+    max-width: 150px;
+    width: 100%;
+    cursor: pointer;
+    height: 35px;
+    border: 0;
+    margin: 0;
+}
+
+form input[type="radio"] {
+    margin: 5px;
+}
+
+form .form-email {
+    margin-top: 10px;
+}
+form .form-email label {
+    font-size: 14px;
+    padding: 0;
+}
+
+form input[type="submit"]:hover,
+form input[type="reset"]:hover {
+    transition-duration: 0.1s;
+    box-shadow: none;
+}
