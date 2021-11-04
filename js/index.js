@@ -12,6 +12,7 @@ const inputDescricao = document.getElementById("descricao");
 const form = document.querySelector(".form");
 
 form.addEventListener("change", () => {
+    verificarUsuario();
     if (inputUsuario.value != "" && inputSenha.value != "" && inputDescricao.value != "") {
         resultadoSucesso();
         botaoDisponivel();
@@ -28,10 +29,11 @@ btnReset.addEventListener("click", () => {
 });
 
 form.addEventListener("submit", (event) => {
+    //Caso o usuario ja exista
     if (confirmaInformacoes()) {
         //retorne verdadeiro
+        alert("Dados registrados com sucesso!");
         limparFomulario();
-        event.preventDefault();
     } else {
         //retorne falso
         event.preventDefault();
@@ -78,4 +80,25 @@ function resultadoFracasso() {
 
 function resultadoSucesso() {
     resultado.innerHTML = "";
+}
+
+//Ler o txt
+
+function verificarUsuario() {
+    fetch("js/autenticacao.txt")
+        .then((response) => response.text())
+        .then((text) => {
+            var allrows = text.split("\n");
+            for (let row = 0; row < allrows.length; row += 2) {
+                if (inputUsuario.value == allrows[row]) {
+                    botaoIndisponivel();
+                    alert("Usuario já registrado!");
+                    return;
+                }
+            }
+        });
+    //verificar senha
+    // for (let row = 1; row < allrows.length; row += 2) {
+    //     console.log("Senhas: " + allrows[row]);
+    // }
 }
