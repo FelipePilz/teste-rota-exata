@@ -7,13 +7,32 @@ resultadoFracasso(); // Chamar esse metodo para começar com a mensagem de preen
 
 const inputUsuario = document.getElementById("usuario");
 const inputSenha = document.getElementById("senha");
+const inputEmail = document.getElementById("email");
 const inputDescricao = document.getElementById("descricao");
+const inputGenero = document.querySelector('input[name="genero"]:checked');
+var termos = "nao";
 
 const form = document.querySelector(".form");
 
+document.getElementById("receberEmail").onclick = function () {
+    // access properties using this keyword
+    if (this.checked) {
+        // Returns true if checked
+        termos = this.value;
+    } else {
+        termos = "nao";
+    }
+};
+
 form.addEventListener("change", () => {
     verificarUsuario();
-    if (inputUsuario.value != "" && inputSenha.value != "" && inputDescricao.value != "") {
+    if (
+        inputUsuario.value != "" &&
+        inputSenha.value != "" &&
+        inputEmail.value != "" &&
+        inputDescricao.value != "" &&
+        inputGenero.value != ""
+    ) {
         resultadoSucesso();
         botaoDisponivel();
     } else {
@@ -32,7 +51,6 @@ form.addEventListener("submit", (event) => {
     //Caso o usuario ja exista
     if (confirmaInformacoes()) {
         //retorne verdadeiro
-        sendXHR();
         alert("Dados registrados com sucesso!");
         limparFomulario();
     } else {
@@ -48,8 +66,14 @@ function confirmaInformacoes() {
             inputUsuario.value +
             "\n Senha: " +
             inputSenha.value +
+            "\n Email: " +
+            inputEmail.value +
             "\n Descrição: " +
-            inputDescricao.value
+            inputDescricao.value +
+            "\n Gênero: " +
+            inputGenero.value +
+            "\n Concorda com os termos? " +
+            termos
     );
 }
 
@@ -58,6 +82,8 @@ function limparFomulario() {
     inputUsuario.value = "";
     inputSenha.value = "";
     inputDescricao.value = "";
+    inputGenero.value = "";
+    inputEmail.value = "";
     resultadoFracasso();
     botaoIndisponivel();
 }
@@ -105,12 +131,4 @@ function encrypt() {
     var pass = inputSenha.value;
     var hash = CryptoJS.MD5(pass);
     return hash;
-}
-
-function sendXHR() {
-    const url = "autenticacao.txt";
-    const data = "\n" + inputUsuario.value + "\n" + encrypt();
-
-    var newXHR = new XMLHttpRequest();
-    newXHR.send(data, url);
 }

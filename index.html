@@ -18,9 +18,17 @@
                 <input id="usuario" type="text" placeholder="Insira seu usuário aqui..." /><br />
                 <label for="senha">Senha:</label>
                 <input id="senha" type="password" placeholder="Insira sua senha aqui..." /><br />
+                <label for="email">Email:</label>
+                <input id="email" type="email" placeholder="Insira seu email aqui..." /><br />
                 <label for="descricao">Descrição:</label>
                 <textarea id="descricao"></textarea>
 
+                <label for="genero">Genero:</label><br />
+                <input type="radio" name="genero" value="masculino" checked /> Masculino
+                <input type="radio" name="genero" value="feminino" /> Feminino
+                <input type="radio" name="genero" value="outro(a)" /> Outro<br /><br />
+                <input type="checkbox" id="receberEmail" value="sim" name="receberEmail" />Deseja
+                receber e-mails com novidades?<br />
                 <input id="btnReset" type="reset" />
                 <input id="btnSubmit" type="submit" />
             </form>
