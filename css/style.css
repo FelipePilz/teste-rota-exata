@@ -11,6 +11,10 @@ main {
     padding: 50px;
 }
 
+main h1 {
+    margin-bottom: 15px;
+}
+
 main img {
     max-width: 250px;
     width: 100%;
@@ -27,7 +31,8 @@ main form label {
 }
 
 form input,
-form textarea {
+form textarea,
+a {
     background-color: #ffffff;
     color: #000000;
     box-shadow: 7px 3px 5px #0000002e;
@@ -59,7 +64,8 @@ form textarea {
 }
 
 form input[type="submit"],
-form input[type="reset"] {
+form input[type="reset"],
+main a {
     font-size: 16px;
     max-width: 150px;
     width: 100%;
@@ -82,7 +88,16 @@ form .form-email label {
 }
 
 form input[type="submit"]:hover,
-form input[type="reset"]:hover {
+form input[type="reset"]:hover,
+a:hover {
     transition-duration: 0.1s;
     box-shadow: none;
+}
+
+a {
+    padding: 7px;
+    text-decoration: none;
+    position: fixed;
+    right: 10px;
+    top: 10px;
 }

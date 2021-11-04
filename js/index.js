@@ -32,6 +32,7 @@ form.addEventListener("submit", (event) => {
     //Caso o usuario ja exista
     if (confirmaInformacoes()) {
         //retorne verdadeiro
+        encrypt();
         alert("Dados registrados com sucesso!");
         limparFomulario();
     } else {
@@ -97,8 +98,15 @@ function verificarUsuario() {
                 }
             }
         });
-    //verificar senha
-    // for (let row = 1; row < allrows.length; row += 2) {
-    //     console.log("Senhas: " + allrows[row]);
-    // }
+}
+
+//encriptar senha
+function encrypt() {
+    var pass = inputSenha.value;
+    if (pass == "") {
+        return false;
+    } else {
+        var hash = CryptoJS.MD5(pass);
+        return true;
+    }
 }
