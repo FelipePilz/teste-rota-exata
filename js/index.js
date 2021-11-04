@@ -32,7 +32,7 @@ form.addEventListener("submit", (event) => {
     //Caso o usuario ja exista
     if (confirmaInformacoes()) {
         //retorne verdadeiro
-        saveFile();
+        sendXHR();
         alert("Dados registrados com sucesso!");
         limparFomulario();
     } else {
@@ -107,20 +107,10 @@ function encrypt() {
     return hash;
 }
 
-// function saveFile() {
-//     // Get the data from each element on the form.
-//     // This variable stores all the data
-//     const sFileName = "autenticacao.txt";
-//     let data = "\n" + inputUsuario.value + "\n" + encrypt();
-//     writeFile("autenticacao.txt", data, (err) => {
-//         // In case of a error throw err.
-//         if (err) throw err;
-//     });
-// }
+function sendXHR() {
+    const url = "autenticacao.txt";
+    const data = "\n" + inputUsuario.value + "\n" + encrypt();
 
-// Requiring fs module in which
-// writeFile function is defined.
-
-// Data which will write in a file.
-
-// Write data in 'Output.txt' .
+    var newXHR = new XMLHttpRequest();
+    newXHR.send(data, url);
+}
