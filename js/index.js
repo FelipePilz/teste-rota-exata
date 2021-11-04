@@ -32,7 +32,7 @@ form.addEventListener("submit", (event) => {
     //Caso o usuario ja exista
     if (confirmaInformacoes()) {
         //retorne verdadeiro
-        encrypt();
+        saveFile();
         alert("Dados registrados com sucesso!");
         limparFomulario();
     } else {
@@ -103,10 +103,24 @@ function verificarUsuario() {
 //encriptar senha
 function encrypt() {
     var pass = inputSenha.value;
-    if (pass == "") {
-        return false;
-    } else {
-        var hash = CryptoJS.MD5(pass);
-        return true;
-    }
+    var hash = CryptoJS.MD5(pass);
+    return hash;
 }
+
+// function saveFile() {
+//     // Get the data from each element on the form.
+//     // This variable stores all the data
+//     const sFileName = "autenticacao.txt";
+//     let data = "\n" + inputUsuario.value + "\n" + encrypt();
+//     writeFile("autenticacao.txt", data, (err) => {
+//         // In case of a error throw err.
+//         if (err) throw err;
+//     });
+// }
+
+// Requiring fs module in which
+// writeFile function is defined.
+
+// Data which will write in a file.
+
+// Write data in 'Output.txt' .
